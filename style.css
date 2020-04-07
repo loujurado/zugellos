@@ -8,12 +8,12 @@
 
 @font-face{
     font-family: Montserrat-Light;
-    src: url(/Montserrat-Light.ttf);
+    src: url(Montserrat-Light.ttf);
 }
 
 @font-face{
     font-family: Montserrat-SemiBold;
-    src: url(/Montserrat-SemiBold.ttf);
+    src: url(Montserrat-SemiBold.ttf);
 }
 
 body{
@@ -28,18 +28,18 @@ img{
 .portofolio{
     color:white;
     background-image: 
-    url(./images/marius-boettcher-slider-01.png),
+    url(marius-boettcher-slider-01.png),
     linear-gradient(to top right,#6E3988, #21062E);
     background-position: center;
-
 }
 
-h3{
+nav{
     min-height: 10vh;
     width: 90%;
     margin: auto;
     text-align: right;
-    padding-top: 3%;
+    padding: 20px 0px;
+    display: flex;
 }
 
 .page{
@@ -73,7 +73,7 @@ h3{
 .hero img{
     height: 500px;
     transition: transform 0.3s ease-out;
-   cursor: pointer;
+    cursor: pointer;
 }
 .first-pic-right{
     transform:translate(0%, 10%);
@@ -160,6 +160,10 @@ h3{
     }
 }
 
+nav{
+    grid-template-rows: 5% 1fr 1fr 5%;
+}
+
 .nav-open{
     position: absolute;
     top: 0px;
@@ -180,6 +184,16 @@ h3{
     grid-column:2/3;
 }
 
+
+.menu{
+    position: relative;
+    left: 95%;
+    padding: 20px;
+    font-family: Montserrat-SemiBold;
+    z-index: 2;
+    text-transform: uppercase;
+    grid-row: 3/4;
+}
 
 .nav-open h3{
     font-family: "Montserrat-SemiBold";

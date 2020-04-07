@@ -2,8 +2,8 @@ function init() {
     const slides = document.querySelectorAll(".slide");
     const pages = document.querySelectorAll(".page");
     const backgrounds = [
-        "url('/marius-boettcher-slider-01copy.png')",
-        "url('/marius-boettcher-slider-07 copy.png')",
+        "url('marius-boettcher-slider-01.png')",
+        "url('marius-boettcher-slider-07 copy.png')",
 
       
     ];
@@ -104,23 +104,28 @@ function init() {
       console.log(scrollSlide);
     }
   
-    const menu = document.querySelector(".menu");
-    const navOpen = document.querySelector(".nav-open");
-    const contact = document.querySelector(".contact");
-    const social = document.querySelector(".social");
-  
-    const tl = new TimelineMax({ paused: true, reversed: true });
-  
-    tl.to(navOpen, 0.5, { y: 0 })
+  const hamburger = document.querySelector(".menu");
+  const navOpen = document.querySelector(".nav-open");
+  const contact = document.querySelector(".contact");
+  const social = document.querySelector(".social");
+
+  const tl = new TimelineMax({ paused: true, reversed: true });
+
+  tl.to(navOpen, 0.5, { y: 0 })
     .fromTo(contact, 0.5, { opacity: 0, y: 10 }, { opacity: 1, y: 0 }, "-=0.1")
     .fromTo(social, 0.5, { opacity: 0, y: 10 }, { opacity: 1, y: 0 }, "-=0.5")
-    .fromTo(menu, 0.5, { opacity: 1, y: 10 }, { opacity: 1, y: 10 }, "-=0.5")
-    .fromTo(menu, 0.2, { stroke: "white" }, { stroke: "black" }, "1");
+    .fromTo(
+      hamburger,
+      0.2,
+      { color: "white" },
+      { color: "black" },
+      "-=1"
+    );
 
-
-  menu.addEventListener("click", () => {
+  hamburger.addEventListener("click", () => {
     tl.reversed() ? tl.play() : tl.reverse();
   });
+
 }
   
   function throttle(func, limit) {
