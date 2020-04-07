@@ -2,8 +2,8 @@ function init() {
     const slides = document.querySelectorAll(".slide");
     const pages = document.querySelectorAll(".page");
     const backgrounds = [
-        "url('marius-boettcher-slider-01.PNG')",
-        "url('marius-boettcher-slider-07 copy.PNG')",
+        "url('marius-boettcher-slider-01.png')",
+        "url('marius-boettcher-slider-07 copy.png')",
 
 
     ];
