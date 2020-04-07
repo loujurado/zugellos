@@ -2,15 +2,15 @@ function init() {
     const slides = document.querySelectorAll(".slide");
     const pages = document.querySelectorAll(".page");
     const backgrounds = [
-        "url('marius-boettcher-slider-01.png')",
-        "url('marius-boettcher-slider-07 copy.png')",
+        "url('marius-boettcher-slider-01.PNG')",
+        "url('marius-boettcher-slider-07 copy.PNG')",
 
-      
+
     ];
     //Tracker
     let current = 0;
     let scrollSlide = 0;
-  
+
     slides.forEach((slide, index) => {
       slide.addEventListener("click", function() {
         changeDots(this);
@@ -18,14 +18,14 @@ function init() {
         scrollSlide = index;
       });
     });
-  
+
     function changeDots(dot) {
       slides.forEach(slide => {
         slide.classList.remove("active");
       });
       dot.classList.add("active");
     }
-  
+
     function nextSlide(pageNumber) {
       const nextPage = pages[pageNumber];
       const currentPage = pages[current];
@@ -35,7 +35,7 @@ function init() {
       const currentRight = currentPage.querySelector(".hero .first-pic-right");
       const nextText = nextPage.querySelector(".details");
       const portofolio = document.querySelector(".portofolio");
-  
+
       const tl = new TimelineMax({
         onStart: function() {
           slides.forEach(slide => {
@@ -48,7 +48,7 @@ function init() {
           });
         }
       });
-  
+
       tl.fromTo(currentLeft, 0.3, { y: "-10%" }, { y: "-100%" })
         .fromTo(currentRight, 0.3, { y: "10%" }, { y: "-100%" }, "-=0.2")
         .to(portofolio, 0.3, { backgroundImage: backgrounds[pageNumber] })
@@ -70,14 +70,14 @@ function init() {
         .fromTo(nextText, 0.3, { opacity: 0, y: 0 }, { opacity: 1, y: 0 })
         .set(nextLeft, { clearProps: "all" })
         .set(nextRight, { clearProps: "all" });
-  
+
       current = pageNumber;
     }
-  
+
     //OPTIONAL
     document.addEventListener("wheel", throttle(scrollChange, 1500));
     document.addEventListener("touchmove", throttle(scrollChange, 1500));
-  
+
     function switchDots(dotNumber) {
       const activeDot = document.querySelectorAll(".slide")[dotNumber];
       slides.forEach(slide => {
@@ -85,14 +85,14 @@ function init() {
       });
       activeDot.classList.add("active");
     }
-  
+
     function scrollChange(e) {
       if (e.deltaY > 0) {
         scrollSlide += 1;
       } else {
         scrollSlide -= 1;
       }
-  
+
       if (scrollSlide > 2) {
         scrollSlide = 0;
       }
@@ -103,7 +103,7 @@ function init() {
       nextSlide(scrollSlide);
       console.log(scrollSlide);
     }
-  
+
   const hamburger = document.querySelector(".menu");
   const navOpen = document.querySelector(".nav-open");
   const contact = document.querySelector(".contact");
@@ -127,7 +127,7 @@ function init() {
   });
 
 }
-  
+
   function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -140,6 +140,5 @@ function init() {
       }
     };
   }
-  
+
   init();
-  
